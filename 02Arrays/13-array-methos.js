@@ -17,7 +17,10 @@ Implement
     splice // mutates the array, by adding/replacing elements. First argument is the index of the first change, second argument is the number of elements to replace
     flat // concatenates sub arrays. Argument defines how deep the array should be flattened
 */
+
 let numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+/*
+// UNSHIFT
 function myUnshift(array, element) {
   for (let i = array.length; i >= 0; i--) {
     array[i] = array[i - 1];
@@ -29,3 +32,165 @@ function myUnshift(array, element) {
 // console.log(numArray);
 myUnshift(numArray, 99);
 console.log(numArray);
+
+// SHIFT
+function myShift(array) {
+  for (let i = 0; i < array.length - 1; i++) {
+    array[i] = array[i + 1];
+  }
+  array.length = array.length - 1;
+}
+numArray.shift();
+console.log(numArray);
+myShift(numArray);
+console.log(numArray);
+
+
+// POP
+function myPop(array) {
+  let lastElement = array[array.length - 1];
+  array.length = array.length - 1;
+  return lastElement;
+}
+console.log(myPop(numArray));
+console.log(numArray);
+
+// PUSH
+function myPush(array, element) {
+  array[array.length] = element;
+}
+myPush(numArray, 55);
+console.log(numArray);
+
+// FOREACH
+
+function myForEach(array, myFunction) {
+  for (let item in array) {
+    myFunction(item);
+  }
+}
+
+let sum = 0;
+function calcSum(num) {
+  sum += Number(num);
+  return sum;
+}
+
+// numArray.forEach(calcSum);
+myForEach(numArray, calcSum);
+console.log(sum);
+
+function myFindIndex(arr, myFunc) {
+  for (let i = 0; i < arr.length; i++) {
+    if (myFunc(arr[i])) return i;
+  }
+}
+function checkSize(size) {
+  return size > 3;
+}
+
+console.log(myFindIndex(numArray, checkSize));
+
+
+// find
+function myFind(arr, myFunc) {
+  for (let i = 0; i < arr.length; i++) {
+    if (myFunc(arr[i])) return arr[i];
+  }
+}
+function checkSize(size) {
+  return size > 10;
+}
+
+console.log(myFind(numArray, checkSize));
+
+
+// EVERY
+function myEvery(arr, myFunc) {
+  for (let i = 0; i < arr.length; i++) {
+    if (!myFunc(arr[i])) return false;
+  }
+  return true;
+}
+function checkSize(size) {
+  return size > 1;
+}
+
+console.log(myEvery(numArray, checkSize));
+
+// SOME
+function mySome(arr, myFunc) {
+  for (let i = 0; i < arr.length; i++) {
+    if (myFunc(arr[i])) return true;
+  }
+  return false;
+}
+function checkSize(size) {
+  return size > 16;
+}
+
+console.log(mySome(numArray, checkSize));
+
+
+// MAP
+function myMap(arr, myFunc) {
+  let newArray = [];
+  for (let item in arr) {
+    newArray.push(myFunc(arr[item]));
+  }
+  return newArray;
+}
+
+function addOne(num) {
+  return ++num;
+}
+console.log(myMap(numArray, addOne));
+
+
+// FILTER
+function myFilter(arr, myFunc) {
+  let newArray = [];
+  for (let item in arr) {
+    if (myFunc(arr[item])) newArray.push(arr[item]);
+  }
+  return newArray;
+}
+function checkSize(size) {
+  return size > 3;
+}
+
+console.log(myFilter(numArray, checkSize));
+
+
+// REDUCE
+function myReduce(array, callback, initialValue) {
+  let accumulator;
+  !initialValue ? (accumulator = 0) : (accumulator = initialValue);
+
+  for (let item in array) {
+    accumulator = callback(item, accumulator);
+  }
+  return accumulator;
+}
+let sum = 0;
+function calcSum(num, initVal) {
+  return Number(num) + initVal;
+}
+console.log(myReduce(numArray, calcSum));
+
+
+// SLICE
+function mySlice(arr, firstEl, lastEl) {
+  let newArray = [];
+  for (let i = firstEl; i < lastEl; i++) {
+    newArray.push(arr[i]);
+  }
+  return newArray;
+}
+// console.log(numArray.slice(0, 4));
+console.log(mySlice(numArray, 0, 4));
+*/
+
+// SPLICE
+
+// FLAT
