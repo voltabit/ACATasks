@@ -14,7 +14,7 @@ const users = [
     lang: "ru",
   },
   {
-    username: "Nil Armstrong",
+    username: "Neil Armstrong",
     lang: "ENG",
   },
 ];
