@@ -14,7 +14,7 @@ Implement
     filter // creates a new array filled with elements that pass the check
     reduce // returns a single value, calculated from the array elements
     slice // returns a new, subset array, defined by the first element and the last element from the original array
-    splice // mutates the array, by adding/replacing elements. First argument is the index of the first change, second argument is the number of elements to replace
+    splice // mutates the array, by adding/replacing elements. First argument is the index of the first change, second argument is the number of elements to replace. Returns array of removed elements
     flat // concatenates sub arrays. Argument defines how deep the array should be flattened
 */
 
@@ -189,18 +189,37 @@ function mySlice(arr, firstEl, lastEl) {
 }
 // console.log(numArray.slice(0, 4));
 console.log(mySlice(numArray, 0, 4));
-*/
+
 
 // SPLICE
-function mySplice(
-  arr,
-  elementIndex,
-  elementsToRemove,
-  elementToInsert1,
-  elementToInsert2
-) {
-  for (let i = elementIndex; i < elementIndex + elementsToRemove; i++) {}
+// Mutates the array, by removing/adding/replacing elements.
+// First argument is the index of the first change, second argument is the number of elements to replace.
+// The rest are the elements to add. Returns array of removed elements
+function mySplice(arr, elementIndex, elementsToRemove, ...elementsToInsert) {
+  const removedElements = arr.slice(
+    elementIndex,
+    elementIndex + elementsToRemove
+  );
+  const elementsToReturn = arr.slice(elementIndex + elementsToRemove);
+  arr.length = elementIndex;
+  arr.push(...elementsToInsert, ...elementsToReturn);
+  return removedElements;
+}
+console.log(mySplice(numArray, 3, 1, 8, 8, 8));
+console.log(numArray);
+*/
+// FLAT
+const layeredArray = [1, 2, [3, 4], [[5, 6], 7, 8], 9];
+function myFlat(arr, depth) {
+  let flattenedArray = [];
+  for (element in arr) {
+    if (element.isArray()) {
+      for (let i = 0; i < depth; i++) {
+        myFlat.push(element[i]);
+      } else myFlat.push(element);
+    }
+  }
 }
 
-console.log(mySlice(numArray, 0, 1));
-// FLAT
+console.log(myFlat(layeredArray, 1));
+// console.log(layeredArray.flat(2));
