@@ -192,5 +192,15 @@ console.log(mySlice(numArray, 0, 4));
 */
 
 // SPLICE
+function mySplice(
+  arr,
+  elementIndex,
+  elementsToRemove,
+  elementToInsert1,
+  elementToInsert2
+) {
+  for (let i = elementIndex; i < elementIndex + elementsToRemove; i++) {}
+}
 
+console.log(mySlice(numArray, 0, 1));
 // FLAT
