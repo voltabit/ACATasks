@@ -14,18 +14,25 @@ const processArray = function (array) {
   for (let i = 0; i < array.length; i++) {
     if (!Array.isArray(array[i])) return "Invalid Argument"; // Checks if items of the given array are arrays.
     for (let j = 0; j < array[i].length; j++) {
-      if (array[i][j] < 0) { // Processes only negative numbers
-        if (biggestNegativeNumber1 === 0) biggestNegativeNumber1 = array[i][j]; // Sets first negative number
-        else if (biggestNegativeNumber2 === 0) biggestNegativeNumber2 = array[i][j]; // Sets second negative number
-        else if (array[i][j] > biggestNegativeNumber1) biggestNegativeNumber1 = array[i][j]; // Replaces first negative number with a larger one
-        else if (array[i][j] > biggestNegativeNumber2) biggestNegativeNumber2 = array[i][j]; // Replaces second negative number with a larger one
+      if (array[i][j] < 0) {
+        // Processes only negative numbers
+        if (biggestNegativeNumber1 === 0)
+          biggestNegativeNumber1 = array[i][j]; // Sets first negative number
+        else if (biggestNegativeNumber2 === 0)
+          biggestNegativeNumber2 = array[i][j]; // Sets second negative number
+        else if (array[i][j] > biggestNegativeNumber1)
+          biggestNegativeNumber1 =
+            array[i][j]; // Replaces first negative number with a larger one
+        else if (array[i][j] > biggestNegativeNumber2)
+          biggestNegativeNumber2 = array[i][j]; // Replaces second negative number with a larger one
       }
     }
   }
 
   if (biggestNegativeNumber1 === 0 && biggestNegativeNumber2 === 0)
     return "No negatives";
-  else if (biggestNegativeNumber1 === 0 || biggestNegativeNumber2 === 0) // Not in the requirements but is a logical case to cover
+  if (biggestNegativeNumber1 === 0 || biggestNegativeNumber2 === 0)
+    // Not in the requirements but is a logical case to cover
     return "Only one negative number";
 
   return biggestNegativeNumber1 * biggestNegativeNumber2;
