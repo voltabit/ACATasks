@@ -1,0 +1,28 @@
+During the invocation of the method if the function is called without the . operator on its left, 
+the context is the window (global) object
+
+if there is the . operator on the left the context is the object
+
+General case or default binding is when (this) is bound to the default context.
+Explicit binding means that we modify this explicitly with bind and (call / apply?)
+implicit binding this returns the object where the function is called as object.function()
+
+Arrow functions:
+
+lexical scope: vars availability
+dynamic scope: vars values
+
+do not use arrow functions to create methods to avoid issues with this
+
+if the arrow function is not in a function scope, it belongs to the global scope and will return window
+if the arrow function is in a method, it will return the lexical scope of the parent scope and will return the 
+
+arrow function takes the scope of the env where it was 
+
+function.call(object)
+function.apply(object)
+function.apply(object)
+
+
+if this is set during function call/ call apply and bind can change this
+otherwise these cannot change this (arrow function case)
