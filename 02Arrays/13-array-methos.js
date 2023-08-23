@@ -19,7 +19,7 @@ Implement
 */
 
 let numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
-/*
+
 // UNSHIFT
 function myUnshift(array, element) {
   for (let i = array.length; i >= 0; i--) {
@@ -44,7 +44,6 @@ numArray.shift();
 console.log(numArray);
 myShift(numArray);
 console.log(numArray);
-
 
 // POP
 function myPop(array) {
@@ -91,7 +90,6 @@ function checkSize(size) {
 
 console.log(myFindIndex(numArray, checkSize));
 
-
 // find
 function myFind(arr, myFunc) {
   for (let i = 0; i < arr.length; i++) {
@@ -103,7 +101,6 @@ function checkSize(size) {
 }
 
 console.log(myFind(numArray, checkSize));
-
 
 // EVERY
 function myEvery(arr, myFunc) {
@@ -131,7 +128,6 @@ function checkSize(size) {
 
 console.log(mySome(numArray, checkSize));
 
-
 // MAP
 function myMap(arr, myFunc) {
   let newArray = [];
@@ -146,7 +142,6 @@ function addOne(num) {
 }
 console.log(myMap(numArray, addOne));
 
-
 // FILTER
 function myFilter(arr, myFunc) {
   let newArray = [];
@@ -160,7 +155,6 @@ function checkSize(size) {
 }
 
 console.log(myFilter(numArray, checkSize));
-
 
 // REDUCE
 function myReduce(array, callback, initialValue) {
@@ -178,7 +172,6 @@ function calcSum(num, initVal) {
 }
 console.log(myReduce(numArray, calcSum));
 
-
 // SLICE
 function mySlice(arr, firstEl, lastEl) {
   let newArray = [];
@@ -189,7 +182,6 @@ function mySlice(arr, firstEl, lastEl) {
 }
 // console.log(numArray.slice(0, 4));
 console.log(mySlice(numArray, 0, 4));
-
 
 // SPLICE
 // Mutates the array, by removing/adding/replacing elements.
@@ -207,19 +199,20 @@ function mySplice(arr, elementIndex, elementsToRemove, ...elementsToInsert) {
 }
 console.log(mySplice(numArray, 3, 1, 8, 8, 8));
 console.log(numArray);
-*/
+
 // FLAT
-const layeredArray = [1, 2, [3, 4], [[5, 6], 7, 8], 9];
-function myFlat(arr, depth) {
+const layeredArray = [1, 2, [3, 4], [[5, [6]], 7, 8], 9];
+function myFlat(arr, depth = 1) {
   let flattenedArray = [];
-  for (element in arr) {
-    if (element.isArray()) {
-      for (let i = 0; i < depth; i++) {
-        myFlat.push(element[i]);
-      } else myFlat.push(element);
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i]) && depth > 0) {
+      flattenedArray = flattenedArray.concat(myFlat(arr[i], depth - 1));
+    } else {
+      flattenedArray.push(arr[i]);
     }
   }
+  return flattenedArray;
 }
 
-console.log(myFlat(layeredArray, 1));
+console.log(myFlat(layeredArray, 2));
 // console.log(layeredArray.flat(2));
