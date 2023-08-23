@@ -8,26 +8,15 @@ const updateBalance = function (amount, transactionType) {
   switch (transactionType) {
     case "deposit":
       if (amount <= 0) {
-        console.log(
-          "Invalid deposit amount. Please deposit a positive amount."
-        );
-        break;
+        return "Invalid deposit amount. Please deposit a positive amount.";
       }
       bankAccount.balance += amount;
-      console.log(
-        `Deposited \$${amount}. New balance: \$${bankAccount.balance}`
-      );
-      break;
+      return `Deposited \$${amount}. New balance: \$${bankAccount.balance}`;
     case "withdraw":
-      if (amount > bankAccount.balance) {
-        console.log("Insufficet balance or invalid withdrawal amount.");
-        break;
-      }
+      if (amount > bankAccount.balance)
+        return "Insufficient balance or invalid withdrawal amount.";
       bankAccount.balance -= amount;
-      console.log(
-        `Withdrew \$${amount}. New balance: \$${bankAccount.balance}`
-      );
-      break;
+      return `Withdrew \$${amount}. New balance: \$${bankAccount.balance}`;
   }
 };
 
@@ -37,7 +26,7 @@ const bankAccount = {
   accountHolder: "John Doe",
 };
 
-updateBalance(500, "deposit");
-updateBalance(200, "withdraw");
-updateBalance(-100, "deposit");
-updateBalance(5000, "withdraw");
+console.log(updateBalance(500, "deposit"));
+console.log(updateBalance(200, "withdraw"));
+console.log(updateBalance(-100, "deposit"));
+console.log(updateBalance(5000, "withdraw"));
