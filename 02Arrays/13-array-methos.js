@@ -69,9 +69,9 @@ function myForEach(array, myFunction) {
   }
 }
 
-let sum = 0;
+let sum2 = 0;
 function calcSum(num) {
-  sum += Number(num);
+  sum2 += Number(num);
   return sum;
 }
 
