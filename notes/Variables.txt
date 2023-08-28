@@ -1,0 +1,21 @@
+USE STRICT
+When using Classes and modules, there's no need to set "use strict" as it is automatically enabled
+
+VARIABLES
+let, const, var
+var has no block scope: it is either global or function-scoped.
+multiple variable declarations with var will not throw an error.
+var is hoisted (raised to the top of the function, or script for glabal scope) even in unreachable section of a code.
+
+Declarations are hoisted but assignments are not.
+
+IIFE - Immediately Invoked Function Expression
+This is OLD SCHOOL
+wrap the function with parantheses
+	(function() { var m = "Hi"; alert(m); })();
+include the function and its call in the parantheses
+Start the function declaration with the Bitwise NOT operator
+Start the function declaration with the Unary + operator
+
+
+The name must contain only letters, digits, or the symbols $ and _. The first character must not be a digit.
