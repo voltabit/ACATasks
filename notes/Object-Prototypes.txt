@@ -1,0 +1,5 @@
+prototypes is similar to the blueprint concept
+classes
+
+f.__proto__ === Function.prototype // true
+f.__proto__.__proto__ === Object.prototype // true
