@@ -10,7 +10,7 @@ function calcScrabbleScore(word) {
   for (let i = 0; i < word.length; i++) {
     for (let j = 0; j < charScores.length; j++) {
       for (let k = 0; k < charScores[j].length; k++) {
-        if (word.charAt(i) === charScores[j][k]) {
+        if (word[i] === charScores[j][k]) {
           score += j;
           break;
         }

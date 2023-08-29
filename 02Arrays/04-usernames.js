@@ -1,12 +1,9 @@
 "use strict";
 
 function getUserNames(arr) {
-  let names = [];
-  for (let i = 0; i < arr.length; i++) {
-    names.push(arr[i].username);
-  }
-  return names;
+  return arr.map((user) => user.username);
 }
+
 const users = [
   {
     username: "Yuri Gagarin",

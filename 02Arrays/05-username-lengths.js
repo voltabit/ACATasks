@@ -1,11 +1,7 @@
 "use strict";
 
-function getUserNameLengths(array) {
-  let usernameLengths = [];
-  for (let i = 0; i < array.length; i++) {
-    usernameLengths.push(array[i].username.length);
-  }
-  return usernameLengths;
+function getUserNames(arr) {
+  return arr.map((user) => user.username.length);
 }
 
 const users = [
@@ -19,4 +15,4 @@ const users = [
   },
 ];
 
-console.log(getUserNameLengths(users));
+console.log(getUserNames(users));

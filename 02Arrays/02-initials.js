@@ -6,7 +6,7 @@ function initialsOnly(input) {
   let words = input.split(" ");
   let initials = "";
   for (const word of words) {
-    initials += word.charAt(0).toUpperCase();
+    initials += word[0].toUpperCase();
   }
   return initials;
 }
