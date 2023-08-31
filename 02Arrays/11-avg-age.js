@@ -14,11 +14,11 @@ const users = [
 ];
 
 function calculateAvgAge(array) {
-  let ageSum = 0;
-  for (let i = 0; i < array.length; i++) {
-    ageSum += array[i].age;
-  }
-  return ageSum / array.length;
+  return (
+    array
+      .map((item) => item.age)
+      .reduce((accumulator, age) => accumulator + age, 0) / array.length
+  );
 }
 
 console.log(calculateAvgAge(users));
