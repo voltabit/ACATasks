@@ -1,12 +1,8 @@
 "use strict";
 function filterRussianUsers(arrayOfUsers) {
-  let filteredUsers = [];
-  for (let user of arrayOfUsers) {
-    if (user.lang === "ru") continue;
-    else filteredUsers.push(user);
-  }
-  return filteredUsers;
+  return arrayOfUsers.filter((item) => item.lang !== "ru");
 }
+
 const users = [
   {
     username: "Yuri Gagarin",

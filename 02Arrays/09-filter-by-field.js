@@ -16,12 +16,9 @@ const users = [
     isAstronaut: false,
   },
 ];
+
 function filterByField(users, field) {
-  let filteredUsers = [];
-  for (let i = 0; i < users.length; i++) {
-    if (users[i][field]) filteredUsers.push(users[i]);
-  }
-  return filteredUsers;
+  return users.filter((user) => user.isAstronaut);
 }
 
 console.log(filterByField(users, "isAstronaut"));
