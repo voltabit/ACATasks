@@ -28,7 +28,7 @@ function largestSquareArea(arr) {
             Math.min(newArr[i - 1][j - 1], newArr[i - 1][j], newArr[i][j - 1]) +
             1;
         }
-        if (newArr[i][j] > maxNum) maxNum = newArr[i][j]; // else-ի ցիկլից դուրս եմ հանում, որ 1-անդամանի քառակուսու դեպքում էլ ճիշտ աշխատի
+        if (newArr[i][j] > maxNum) maxNum = newArr[i][j];
       }
     }
   }
