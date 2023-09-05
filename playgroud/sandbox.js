@@ -1,31 +1,10 @@
-// example on Array
-let a = [1, 2, 3];
-let arr = new Array(1, 2, 3);
-
-console.log(a);
-console.log(arr);
-
-console.dir(Array);
-
-console.log(a.__proto__);
-console.log(a.__proto__.__proto__);
-
-// Object create
-
-const elf = {
-  race: "Arda",
-  fight: function () {
-    console.log("Fight for Middle Earth");
-  },
+let user = {
+  // belongs to another code
+  name: "John",
 };
 
-const legolasTheElf = Object.create(elf);
-legolasTheElf.name = "Legolas";
+let id = Symbol("ID");
 
-// pitfall
-const legolas = {
-  ...legolasTheElf,
-  name: "Legoas",
-};
+user[id] = 1;
 
-console.log(legolas);
+console.log(user[id]); // we can access the data using the symbol as the key
