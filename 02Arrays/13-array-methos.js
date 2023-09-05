@@ -2,7 +2,7 @@
 /*
 Implement 
     unshift // add a new element to the beginning of the array
-    shift // remove the first element from the array
+    shift // remove the first element from the array and returns it
     pop // remove the last element from the array
     push // add a new element to the end of the array
     forEach // call a function for each element in the array
