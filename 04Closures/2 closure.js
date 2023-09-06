@@ -1,13 +1,14 @@
 "use strict";
+//  Implement a function that returns an object with methods to get and set a private variable.
 
 function privateVariable(num) {
   let privateNum = num;
   return {
-    get: function () { // get() {
+    get: function () {
       return privateNum;
     },
-    set: function (n) { // set(n) {
-      privateNum = n;
+    set: function (number) {
+      privateNum = number;
     },
   };
 }
