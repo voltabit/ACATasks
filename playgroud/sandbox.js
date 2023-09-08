@@ -1,10 +1,6 @@
-let user = {
-  // belongs to another code
-  name: "John",
-};
+function partial(cb, ...args) {
+  return (...newArgs) => cb(...args, ...newArgs);
+}
 
-let id = Symbol("ID");
-
-user[id] = 1;
-
-console.log(user[id]); // we can access the data using the symbol as the key
+const add5 = partial(add, 5);
+console.log(add(10, 20));
