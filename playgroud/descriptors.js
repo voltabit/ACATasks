@@ -18,3 +18,5 @@ Object.freeze(object); // object is unchangeable, except for including objects a
 // We freeze objects, and to introduce changes, like adding a new property, we copy an object to another
 newObject = { ...oldObject };
 // this changes the reference to the object and rings the bells to the rest of the code to address the changes accordingly
+
+// getter and setter methods help us find which part of the code changes a property
