@@ -1,5 +1,13 @@
-function f(...args) {
-  console.log(args.length);
+function myCall(obj, a) {
+  return this(obj);
 }
-f(1, 2, 3);
-console.log(f.length);
+
+function f(n) {
+  return n.c;
+}
+
+f.prototype.myCall = myCall;
+
+const obj = { c: 6 };
+
+f.myCall(obj, 5);

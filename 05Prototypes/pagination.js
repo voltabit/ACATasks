@@ -1,3 +1,11 @@
+/* Write Pagination object that will get an array and pageSize, then will return the following.
+    prevPage
+    nextPage
+    firstPage
+    lastPage
+    goToPage
+    getPageItems
+*/
 const alphabetArray = "abcdefghijklmnopqrstuvwxyz".split("");
 Pagination.init(alphabetArray, 4);
 Pagination.getPageItems(); // ["a", "b", "c", "d"]
