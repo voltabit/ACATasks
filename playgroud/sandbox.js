@@ -1,6 +1,5 @@
-function partial(cb, ...args) {
-  return (...newArgs) => cb(...args, ...newArgs);
+function f(...args) {
+  console.log(args.length);
 }
-
-const add5 = partial(add, 5);
-console.log(add(10, 20));
+f(1, 2, 3);
+console.log(f.length);
