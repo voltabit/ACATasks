@@ -7,7 +7,10 @@
     getPageItems
 */
 const alphabetArray = "abcdefghijklmnopqrstuvwxyz".split("");
-Pagination.init(alphabetArray, 4);
+function init(arr, pageLength) {
+  return book;
+}
+Pagination.init(alphabetArray, 4); // Do the pagination
 Pagination.getPageItems(); // ["a", "b", "c", "d"]
 Pagination.nextPage(); // add the current page by one
 Pagination.getPageItems(); // ["e", "f", "g", "h"]
