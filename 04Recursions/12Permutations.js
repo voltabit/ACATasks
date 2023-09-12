@@ -1,22 +1,22 @@
 "use strict";
-function permutations(string) {
+function permutations(str) {
   const results = [];
-  if (string.length === 1) {
-    results.push(string);
+  if (str.length === 1) {
+    results.push(str);
     return results;
   }
 
-  for (let i = 0; i < string.length; i++) {
-    let firstChar = string[i];
-    let rest = string.substring(0, i) + string.substring(i + 1);
+  for (let i = 0; i < str.length; i++) {
+    let firstChar = str[i];
+    let rest = str.substr(0, i) + str.substr(i + 1);
     let subPermutations = permutations(rest);
     for (let j = 0; j < subPermutations.length; j++) {
       const permutation = firstChar + subPermutations[j];
-      if (results.includes(permutation)) continue;
+      if (results.includes(permutation)) continue; // too expensive for a little longer strings
       results.push(permutation);
     }
   }
   return results;
 }
 
-console.log(permutations("test"));
+console.log(permutations("hello"));
