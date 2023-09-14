@@ -6,9 +6,10 @@ function subsetSum(arr, sum) {
   const firstNumber = subset.shift();
 
   if (subset.length > 0) subsetSum(subset, sum - firstNumber);
-
-  const subSum = firstNumber + su;
-  if (subSum === sum) return true;
+  for (let i = 0; i < subset.length; i++) {
+    const subSum = firstNumber + subset[i];
+    if (subSum === sum) return true;
+  }
 
   return false;
 }
