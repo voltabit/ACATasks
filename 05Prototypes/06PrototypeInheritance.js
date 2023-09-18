@@ -1,7 +1,12 @@
+function log(message) {
+  return console.log(message);
+}
 const arr = [1, 2, 3];
 const human = {
   isHuman: true,
 };
+log(human instanceof Object);
+
 const str = "";
 const user = {
   name: "John",
