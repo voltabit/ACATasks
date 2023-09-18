@@ -11,7 +11,7 @@ const Pagination = {
       }
       book.push(pageContents);
       count += pageSize;
-    } while (count < arr.length);
+    } while (count <= arr.length);
     this.book = book;
     return book;
   },
