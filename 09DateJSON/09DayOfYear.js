@@ -8,6 +8,6 @@ function dayOfYear(str) {
   return daysInYear;
 }
 
-const dateToParse = "12/13/2020";
+const dateToParse = "7/30/2023";
 
 console.log(dayOfYear(dateToParse));
