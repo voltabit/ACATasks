@@ -1,11 +1,40 @@
-Function.prototype.myCall = function (obj, ...args) {
-  obj.this = this;
-  const result = this(...args);
-  return result;
-};
-
-const bike = { name: "giant", type: "road bike", color: "green" };
-function paint(obj, color) {
-  this.color = color;
+function myCall(context, ...args) {
+  const token = Date.now();
+  context[token] = this;
+  context[token](...args);
+  delete context[token];
 }
-console.log(myCall(paint("blue")));
+
+Function.prototype.myCall = myCall;
+
+var a = "Window name";
+
+function foo() {
+  console.log(a);
+}
+foo();
+foo.myCall({ a: "Context Name" });
+
+// foo.myCall({ a: "Context name" });
+
+// function myCall(context, ...args) {
+//   const func = this;
+
+//   const prop = Symbol();
+
+//   context[prop] = func;
+//   const result = context.prop;
+//   delete context[prop];
+
+//   return result;
+// }
+
+// Function.prototype.myCall = myCall;
+// const x = 2;
+// const y = 3;
+// const shape = { x: 5, y: 6 };
+// function area(x, y) {
+//   console.log(x * y);
+// }
+// // area(x, y);
+// area.myCall(shape);
