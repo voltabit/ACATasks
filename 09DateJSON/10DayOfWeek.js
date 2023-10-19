@@ -1,5 +1,5 @@
 "use strict";
-function dayOfWeek(date) {
+function getDay(date) {
   const daysOfWeek = [
     "Sunday",
     "Monday",
@@ -9,7 +9,10 @@ function dayOfWeek(date) {
     "Friday",
     "Saturday",
   ];
-  return daysOfWeek[date.getDay()];
+  const day = new Date(date);
+  return console.log(daysOfWeek[day.getDay()]);
 }
-const dateToCheck = new Date("12 / 07 / 2016");
-console.log(dayOfWeek(dateToCheck));
+
+getDay("12/07/2016"); // "Wednesday"
+getDay("09/04/2016"); // "Sunday"
+getDay("12/08/2011"); // "Thursday"

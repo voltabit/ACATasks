@@ -14,30 +14,26 @@ const months = [
   "December",
 ];
 
-function monthsInterval(firstMonth, lastMonth) {
-  const myMonths = [...months];
-  const bigDate = new Date(Math.max(firstMonth, lastMonth));
-  const smallDate = new Date(Math.min(firstMonth, lastMonth));
-  const monthDistance = bigDate.getMonth() - smallDate.getMonth();
-  const yearDistance = bigDate.getFullYear() - smallDate.getFullYear();
-  // console.log(monthDistance, yearDistance);
+function monthsInterval(start, end) {
+  let pointer = new Date(Math.min(start, end));
+  const finish = new Date(Math.max(start, end));
+  const includedMonths = new Set();
 
-  for (let i = 0; i < yearDistance; i++) {
-    myMonths.concat(months);
+  do {
+    includedMonths.add(pointer.getMonth());
+    pointer.setMonth(pointer.getMonth() + 1);
+  } while (pointer <= finish);
+
+  const result = Array.from(includedMonths.values());
+  const output = [];
+  for (let i = 0; i < 12; i++) {
+    if (!isNaN(result[i])) {
+      output.push(months[result[i]]);
+    }
   }
-  months.length = monthDistance + 1;
-  myMonths.concat(months);
-
-  return months;
+  return console.log(output);
 }
 
-let january = new Date(2017, 0, 1);
-let march = new Date(2017, 2, 1);
+let january = new Date(2018, 0, 1);
+let march = new Date(2018, 2, 1);
 monthsInterval(january, march);
-// let january2017 = new Date(2017, 0, 1);
-// let january2018 = new Date(2018, 0, 1);
-// console.log(monthsInterval(january2017, january2018));
-
-// let december = new Date(2017, 11, 1);
-// let january = new Date(2018, 0, 1);
-// monthsInterval(december, january);

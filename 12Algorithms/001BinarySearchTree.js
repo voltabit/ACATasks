@@ -74,6 +74,6 @@ myBsc.insert(11);
 myBsc.insert(1);
 myBsc.insert(55);
 myBsc.insert(16);
-console.log(myBsc.search(17));
+console.log(myBsc.search(4));
 console.log(myBsc.findMin());
 console.log(myBsc.findMax());
