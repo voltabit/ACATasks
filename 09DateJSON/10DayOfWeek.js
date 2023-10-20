@@ -10,9 +10,9 @@ function getDay(date) {
     "Saturday",
   ];
   const day = new Date(date);
-  return console.log(daysOfWeek[day.getDay()]);
+  return daysOfWeek[day.getDay()];
 }
 
-getDay("12/07/2016"); // "Wednesday"
-getDay("09/04/2016"); // "Sunday"
-getDay("12/08/2011"); // "Thursday"
+console.log(getDay("12/07/2016")); // "Wednesday"
+console.log(getDay("09/04/2016")); // "Sunday"
+console.log(getDay("12/08/2011")); // "Thursday"

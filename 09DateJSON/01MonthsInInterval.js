@@ -31,9 +31,9 @@ function monthsInterval(start, end) {
       output.push(months[result[i]]);
     }
   }
-  return console.log(output);
+  return output;
 }
 
 let january = new Date(2018, 0, 1);
 let march = new Date(2018, 2, 1);
-monthsInterval(january, march);
+console.log(monthsInterval(january, march));

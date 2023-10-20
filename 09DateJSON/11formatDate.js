@@ -16,7 +16,7 @@ function formatDate(date) {
     "December",
   ];
   const [year, month, day] = date.split("-");
-  return console.log(`${day} ${months[month - 1]} ${year}`);
+  return `${day} ${months[month - 1]} ${year}`;
 }
 
-formatDate("2020-05-14");
+console.log(formatDate("2020-05-14"));
