@@ -16,22 +16,20 @@ class LinkedList {
     this.current = new Node(data);
     if (this.isEmpty()) {
       this.head = this.current;
-      this.tail = this.current;
     } else {
       this.tail.next = this.current;
-      this.tail = this.current;
     }
+    this.tail = this.current;
     this.size++;
   }
   prepend(data) {
     this.current = new Node(data);
     if (this.isEmpty()) {
-      this.head = this.current;
       this.tail = this.current;
     } else {
       this.current.next = this.head;
-      this.head = this.current;
     }
+    this.head = this.current;
     this.size++;
   }
   insert(data, index) {
