@@ -3,7 +3,7 @@ class Account {
   constructor(name, balance) {
     this.name = name;
     this.#balance = balance;
-    const id = Date.now() + Math.floor(Math.random() * 100);
+    this.id = Date.now() + Math.floor(Math.random() * 100);
   }
   get balance() {
     return this.#balance;
@@ -37,7 +37,9 @@ class Account {
     this.debit(amount);
     account.credit(amount);
   }
-  static identifyAccounts(account) {}
+  static identifyAccounts(...args) {
+    // args.forEach((account.name) => `${account.name} id is ${account.id}`);
+  }
 }
 
 const saving = new Account("saving", 1000);
@@ -48,20 +50,13 @@ saving.debit(2000);
 saving.transferTo(current, 1000);
 console.log(saving.balance);
 console.log(current.balance);
-/*
-> The rest does not make sense to me:
 
+/* 
 identifyAccounts, this should be a static method for identify accounts by id of them
-
-> There was no id so far. Do we mean "name"?
-> What do we mean by identify?
 
 const res = Account.identifyAccounts(current, saving);
 console.log(saving.balance);
 saving.balance = "hello";
-
-> Are we trying to set a string to balance? What is the meaning of setting balance to "hello"?
-
 saving.submitBalance("hello");
 console.log(saving);
 */
