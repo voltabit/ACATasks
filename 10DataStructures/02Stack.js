@@ -1,38 +1,40 @@
 class Stack {
-  #items = [];
-  push(value) {
-    this.#items.push(value);
+  #storage = [];
+  push(data) {
+    this.#storage.push(data);
   }
   pop() {
-    return this.#items.pop();
+    return this.#storage.pop();
   }
   top() {
-    return this.#items[this.#items.length - 1];
+    return this.#storage[this.getSize() - 1];
   }
   isEmpty() {
-    return !this.#items.length;
+    return this.getSize() === 0;
   }
   getSize() {
-    return this.#items.length;
+    return this.#storage.length;
   }
 }
 
-function isValidParenthesis(str) {
-  const stack = new Stack();
-  str.split("").forEach((el) => {
-    if (el === "(" || el === "[" || el === "{") {
-      stack.push(el);
-    } else if (
-      (el === ")" && stack.top() === "(") ||
-      (el === "]" && stack.top() === "[") ||
-      (el === "}" && stack.top() === "{")
-    ) {
-      stack.pop();
-    } else if (stack.isEmpty()) {
-      return false;
-    }
-  });
-  return stack.isEmpty();
-}
+const stack = new Stack();
+stack.push(1);
+stack.push(2);
+console.log(stack.pop()); // Should print 2
+console.log(stack.top()); // Should print 1
+console.log(stack.isEmpty()); // Should print false
+console.log(stack.getSize()); // Should print 1
 
-console.log(isValidParenthesis("[]([{}]))))"));
+/*
+. Using a Linked List:
+Create a class named Stack.
+Initialize a variable (top) to represent the top of the stack as null and a size counter.
+Implement the push, pop, peek, isEmpty, and getSize methods using a linked list.
+Test the stack by pushing and popping elements.
+Example Usage:
+
+const stack = new Stack();
+*/
+stack.push(1);
+stack.push(2);
+console.log(stack.pop()); // Should print 2

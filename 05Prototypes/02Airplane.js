@@ -10,14 +10,14 @@ const Airplane = {
   },
   takeOff() {
     this.isFlying = true;
-    return console.log(`${this.name} is flying.`);
+    return `${this.name} is flying.`;
   },
   land() {
     this.isFlying = false;
-    return console.log(`${this.name} has landed.`);
+    return `${this.name} has landed.`;
   },
 };
 
 Airplane.init("Mig 21");
-Airplane.takeOff();
-Airplane.land();
+console.log(Airplane.takeOff());
+console.log(Airplane.land());
