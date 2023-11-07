@@ -1,13 +1,29 @@
-function uppercase(arg) {
+/*
+
+*/
+function toUppercase(str) {
   return new Promise((resolve, reject) => {
-    setTimeout(function (arg) {
-      if (typeof arg === "string") {
-        resolve(arg.toUpperCase());
+    setTimeout(function () {
+      if (typeof str === "string") {
+        resolve(str.toUpperCase());
       } else {
-        reject(arg);
+        reject(str);
       }
     }, 500);
   });
 }
 
-console.log(uppercase("hello world"));
+toUppercase("hello world")
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+toUppercase(336699)
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((err) => {
+    console.log(err);
+  });

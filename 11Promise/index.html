@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>The News</title>
+  </head>
+  <body>
+    <form name="myForm" action="" method="GET">
+      You want to get news about: <br />
+      <input type="text" id="query" name="inputbox" value="" />
+      <input
+        type="button"
+        name="button"
+        value="Get the News"
+        onClick="getNews()"
+      />
+    </form>
+    <div id="theNewsStream">No news for the moment</div>
+  </body>
+  <script type="text/javascript" src="99GetNews.js"></script>
+</html>
