@@ -17,7 +17,7 @@ const timesTwo = (value) => value * 2;
 
 const prom1 = new Promise((resolve, reject) => {
   resolve(4);
-  reject(new Error("fail"));
+  reject(error);
 });
 
 mapPromise(prom1, timesTwo)
