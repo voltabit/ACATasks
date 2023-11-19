@@ -1,7 +1,25 @@
 function mapPromise(promise, transformer) {
-  return new Promise(function (resolve, reject) {});
+  return new Promise((resolve, reject) => {
+    promise
+      .then((result) => {
+        try {
+          resolve(transformer(result));
+        } catch (error) {
+          reject(error);
+        }
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
 }
+const timesTwo = (value) => value * 2;
 
-function transformer() {}
+const prom1 = new Promise((resolve, reject) => {
+  resolve(4);
+  reject(error);
+});
 
-const prom1 = new Promise((res, rej) => rej(6));
+mapPromise(prom1, timesTwo)
+  .then((result) => console.log(result))
+  .catch((error) => console.log(error));
