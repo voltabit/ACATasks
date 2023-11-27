@@ -11,29 +11,28 @@ function getCurrentPosition() {
   };
 }
 
-function setDestination() {
+function move() {
   const currentPosition = getCurrentPosition();
   destination = {
     x: Math.round(Math.random() * (aquarium.offsetWidth - 313)),
     y: Math.round(Math.random() * (aquarium.offsetHeight - 174)),
   };
-  const xPos = String(currentPosition.x).substring(0, -2);
-  console.log(xPos);
+  const xPos = Number(currentPosition.x.slice(0, -2));
+  console.log(xPos, destination.x);
   if (destination.x < xPos && !flipped) {
-    console.log("targetCoordinates " + destination.x + " " + xPos);
-    //flip fish
-    fishAttributes = `transition: all 5s ease-out allow-discrete; padding-left: ${destination.x}px; padding-top: ${destination.y}px; -moz-transform: scale(-1, 1); -o-transform: scale(-1, 1); -webkit-transform: scale(-1, 1); transform: scale(-1, 1);`;
+    // flip fish
+    fishAttributes = `transition: all 1s ease-out allow-discrete; -moz-transform: scale(-1, 1); -o-transform: scale(-1, 1); -webkit-transform: scale(-1, 1); transform: scale(-1, 1);`;
     fish.setAttribute("style", fishAttributes);
     flipped = true;
-  } else if (flipped && destination.x > currentPosition.x) {
-    fishAttributes = `transition: all 5s ease-out allow-discrete; padding-left: ${destination.x}px; padding-top: ${destination.y}px`;
+  } else if (flipped && destination.x > xPos) {
+    // flip fish
+    fishAttributes = `transition: all 1s ease-out allow-discrete; -moz-transform: scale(1, 1); -o-transform: scale(1, 1); -webkit-transform: scale(1, 1); transform: scale(1, 1);`;
+    fish.setAttribute("style", fishAttributes);
     flipped = false;
-  } else {
-    fishAttributes = `transition: all 5s ease-out allow-discrete; padding-left: ${destination.x}px; padding-top: ${destination.y}px`;
   }
-
+  fishAttributes = `transition: all 5s ease-out allow-discrete; padding-left: ${destination.x}px; padding-top: ${destination.y}px`;
   fish.setAttribute("style", fishAttributes);
   return destination;
 }
-setDestination();
-setInterval(setDestination, 3000);
+move();
+setInterval(move, 3000);
