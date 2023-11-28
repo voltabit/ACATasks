@@ -1,8 +1,6 @@
 const aquarium = document.getElementById("aquarium");
 const fish = document.getElementById("fish");
-let fishAttributes = "";
 let flipped = false;
-let destination = { x: 0, y: 0 };
 
 function getCurrentPosition() {
   return {
@@ -11,28 +9,39 @@ function getCurrentPosition() {
   };
 }
 
-function move() {
+function setTarget() {
+  let destination = { x: 0, y: 0 };
   const currentPosition = getCurrentPosition();
+  currentPosition.x = Number(currentPosition.x.slice(0, -2));
+  currentPosition.y = Number(currentPosition.y.slice(0, -2));
   destination = {
     x: Math.round(Math.random() * (aquarium.offsetWidth - 313)),
     y: Math.round(Math.random() * (aquarium.offsetHeight - 174)),
   };
-  const xPos = Number(currentPosition.x.slice(0, -2));
-  console.log(xPos, destination.x);
-  if (destination.x < xPos && !flipped) {
-    // flip fish
-    fishAttributes = `transition: all 1s ease-out allow-discrete; -moz-transform: scale(-1, 1); -o-transform: scale(-1, 1); -webkit-transform: scale(-1, 1); transform: scale(-1, 1);`;
-    fish.setAttribute("style", fishAttributes);
+
+  if (destination.x < currentPosition.x && !flipped) {
+    // flip left
+    move(
+      `transition: all 0.5s ease-out allow-discrete; padding-left: ${currentPosition.x}px; padding-top: ${currentPosition.y}px; transform: scale(-1, 1);`
+    );
     flipped = true;
-  } else if (flipped && destination.x > xPos) {
-    // flip fish
-    fishAttributes = `transition: all 1s ease-out allow-discrete; -moz-transform: scale(1, 1); -o-transform: scale(1, 1); -webkit-transform: scale(1, 1); transform: scale(1, 1);`;
-    fish.setAttribute("style", fishAttributes);
+  } else if (destination.x > currentPosition.x && flipped) {
+    // flip right
+    move(
+      `transition: all 0.5s ease-out allow-discrete; padding-left: ${currentPosition.x}px; padding-top: ${currentPosition.y}px; transform: scale(1, 1);`
+    );
     flipped = false;
   }
-  fishAttributes = `transition: all 5s ease-out allow-discrete; padding-left: ${destination.x}px; padding-top: ${destination.y}px`;
-  fish.setAttribute("style", fishAttributes);
-  return destination;
+  move(
+    `transition: all 5s ease-in-out allow-discrete; padding-left: ${destination.x}px; padding-top: ${destination.y}px`
+  );
+
+  return null;
 }
-move();
-setInterval(move, 3000);
+function move(direction) {
+  fish.setAttribute("style", direction);
+}
+
+setTarget();
+
+setInterval(setTarget, 3000);
